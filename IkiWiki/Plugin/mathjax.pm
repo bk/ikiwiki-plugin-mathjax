@@ -26,7 +26,7 @@ sub format {
     $content =~ s{\!\!mathjaxbegin-i!! (.*?)\s\!\!mathjaxend-i\!\!}{'\('.decode_base64($1).'\)'}ges; #{
     $content =~ s{\!\!mathjaxbegin-d!! (.*?)\s\!\!mathjaxend-d\!\!}{'\['.decode_base64($1).'\]'}ges; #{
     my $scripttag = _scripttag();
-    $content =~ s{(</head>)}{$scripttag\n$1}i; #}{
+    $content =~ s{(</body>)}{$scripttag\n$1}i; #}{
     return $content;
 }
 
