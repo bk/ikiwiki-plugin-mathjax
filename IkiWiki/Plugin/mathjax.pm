@@ -26,7 +26,7 @@ sub format {
     $content =~ s{\!\!mathjaxbegin-i!! (.*?)\s\!\!mathjaxend-i\!\!}{'\('.decode_base64($1).'\)'}ges; #{
     $content =~ s{\!\!mathjaxbegin-d!! (.*?)\s\!\!mathjaxend-d\!\!}{'\['.decode_base64($1).'\]'}ges; #{
     my $scripttag = _scripttag();
-    $content =~ s{(</head>)}{$scripttag\n$1}i; #}{
+    $content =~ s{(</body>)}{$scripttag\n$1}i; #}{
     return $content;
 }
 
@@ -62,7 +62,7 @@ sub _scripttag {
     return '<script type="text/x-mathjax-config">'
       . 'MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });'
       . '</script>'
-      . '<script type="text/javascript" '
+      . '<script async="async" type="text/javascript" '
       . 'src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config='
       . $config
       . '"></script>';
