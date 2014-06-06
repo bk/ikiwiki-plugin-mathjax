@@ -62,7 +62,7 @@ sub _scripttag {
     return '<script type="text/x-mathjax-config">'
       . 'MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });'
       . '</script>'
-      . '<script type="text/javascript" '
+      . '<script async="async" type="text/javascript" '
       . 'src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config='
       . $config
       . '"></script>';
