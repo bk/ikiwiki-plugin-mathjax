@@ -52,8 +52,8 @@ sub _escape_mathjax {
     $formula =~ s/&/&amp;/g; #"/}[{
     $formula =~ s/</&lt;/g;
     $formula =~ s/>/&gt;/g; #{"
-    $directive .= encode_base64($formula);
-    $directive .= " !!mathjaxend-$mode!!";
+    $directive .= encode_base64($formula, " ");
+    $directive .= "!!mathjaxend-$mode!!";
     return $directive;
 }
 
